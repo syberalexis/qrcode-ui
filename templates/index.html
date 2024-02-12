@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+</head>
+<body>
+    <h1>QR Code Generator</h1>
+    <form action="/generate_qr" method="POST" enctype="multipart/form-data">
+        <label for="data">Data:</label><br>
+        <input type="text" id="data" name="data"><br>
+        <label for="logo">Logo:</label><br>
+        <input type="file" id="logo" name="logo"><br>
+        <input type="submit" value="Generate QR Code">
+    </form>
+</body>
+</html>
