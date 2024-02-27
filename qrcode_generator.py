@@ -2,16 +2,21 @@ import qrcode
 import qrcode.image.svg
 from PIL import Image
 
-def generate_qr_with_logo(data, logo_path, output_path):
+def create_qrcode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_H, box_size=10, border=4, fitted=True, image_factory, data):
     # Générer le QR code
     qr = qrcode.QRCode(
-        version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_H,
-        box_size=10,
-        border=4,
+        version=version,
+        error_correction=error_correction,
+        box_size=box_size,
+        border=border,
+        image_factory=image_factory,
     )
     qr.add_data(data)
-    qr.make(fit=True)
+    qr.make(fit=fitted)
+    return qr
+
+def generate_qr_with_logo(data, logo_path, output_path):
+    
 
     # Créer une image QR code
     qr_img = qr.make_image(fill_color="black", back_color="white")
